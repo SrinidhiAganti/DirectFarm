@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DirectFarm - Connecting Farmers and Consumers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="https://th.bing.com/th/id/OIP.d_tpb5cN4ykZrR2p2bFsLAHaDt?w=316&h=174&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="DirectFarm Logo">
+            <span class="logo-text">DirectFarm</span>
+        </div>
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="marketplace.html">MARKETPLACE</a></li>
+            <li><a href="#contact">CONTACT US</a></li>
+            <li><a href="#about">ABOUT US</a></li>
+            <li><a href="register.html" class="publish-btn">PUBLISH LISTING</a></li>
+            <li><a href="logout" class="logout-button">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+            </li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <h1>Welcome to DirectFarm</h1>
+        <p>Bridging the gap between farmers and consumers. Get fresh produce directly from local farms!</p>
+    </section>
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.rewom5e0DLl6LJjABzjjdAHaDt&pid=Api&P=0&h=180" alt="Farm Image 1">
+            <div class="slide-content">
+                <h2>BUY AND SELL</h2>
+                <h1>AGRICULTURE<br>PRODUCE</h1>
+                <a href="farmer.html" class="cta-btn">Publish Listing</a>
+            </div>
+        </div>
+        <div class="mySlides fade">
+            <img src="https://techcentral.co.za/wp-content/uploads/2024/01/supermarket-food-1500-800.jpg" alt="Farm Image 2">
+            <div class="slide-content">
+                <h2>CONNECT DIRECTLY</h2>
+                <h1>FARM TO<br>TABLE</h1>
+                <a href="marketplace.html" class="cta-btn">Browse Products</a>
+            </div>
+        </div>
+        <div class="mySlides fade">
+            <img src="https://thecreativeadventurer.com/wp-content/uploads/2023/06/The-Creative-Adventurer_1200x675_ProvenceMarkets-900x470.jpg" alt="Farm Image 3">
+            <div class="slide-content">
+                <h2>FRESH & LOCAL</h2>
+                <h1>SUPPORT LOCAL<br>FARMERS</h1>
+                <a href="#about" class="cta-btn">Learn More</a>
+            </div>
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+    
+    <section id="about">
+        <h2>About Us</h2>
+        <p>DirectFarm is dedicated to connecting farmers directly with consumers, ensuring fresh produce and fair prices for all. Our platform empowers local farmers and provides consumers with access to high-quality, locally-sourced products.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="/cdn-cgi/l/email-protection#a2cbccc4cde2c6cbd0c7c1d6c4c3d0cf8cc1cdcf"><span class="__cf_email__" data-cfemail="365f58505976525f445355425057445b1855595b">[email&#160;protected]</span></a></p>
+        <p>Phone: (123) 456-7890</p>
+        <p>Address: 123 Farm Lane, Harvest City, AG 12345</p>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#" target="_blank" id="contacts"><i class="bi bi-linkedin"></i></a>
+            <a href="#" target="_blank" id="contacts"><i class="bi bi-facebook"></i></a>
+            <a href="#" target="_blank" id="contacts"><i class="bi bi-instagram"></i></a>
+            <a href="#" target="_blank" id="contacts"><i class="bi bi-twitter"></i></a>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 DirectFarm. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        if (typeof AuthService === "undefined") {
+          console.error("AuthService not loaded")
+          return
+        }
+      
+        const authService = new AuthService()
+        const user = authService.getCurrentUser()
+      
+        if (!user) {
+          window.location.href = "login.html"
+          return
+        }
+      
+        
+        const userNameElements = document.querySelectorAll(".user-name")
+        if (userNameElements) {
+          userNameElements.forEach((element) => {
+            element.textContent = user.name
+          })
+        }
+      
+        const logoutButtons = document.querySelectorAll(".logout-button")
+        if (logoutButtons) {
+          logoutButtons.forEach((button) => {
+            button.addEventListener("click", (e) => {
+              e.preventDefault()
+              authService.logout()
+              window.location.href = "login.html"
+            })
+          })
+        }
+    })
+      
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+    }
+
+    setInterval(() => {
+        plusSlides(1);
+    }, 5000);
+    </script>
+    <script src="load-auth.js"></script>
+</body>
+</html>
+
