@@ -28,7 +28,7 @@ DirectFarm is a web application that connects farmers directly with consumers an
 ### 1. Clone Repository
 
 ```bash
-git clone (https://github.com/SrinidhiAganti/FarmDirect.git)
+git clone (https://github.com/SrinidhiAganti/DirectFarm.git)
 cd Direct-Farm
 ```
 
